@@ -1,0 +1,183 @@
+{
+  "nav": {
+    "about": "About",
+    "aboutCompany": "Company",
+    "aboutTeam": "Scientific Team",
+    "aboutCerts": "Certifications",
+    "aboutPatents": "Patents",
+    "aboutPartners": "Partners",
+    "products": "Products & Solutions",
+    "productsOverview": "Products",
+    "solutions": "Solutions",
+    "pipeline": "Pipeline",
+    "news": "News",
+    "newsCompany": "Company News",
+    "newsIndustry": "Industry Insights",
+    "newsArticles": "Publications",
+    "contact": "Contact",
+    "contactInfo": "Contact Info",
+    "contactJobs": "Careers"
+  },
+  "hero": {
+    "slogan": "Master Aging, Elevate Life",
+    "subtitle": "Precision Anti-Aging Solutions Powered by Exosome Technology & AI Digital Twin",
+    "cta1": "Learn More",
+    "cta2": "Contact Us"
+  },
+  "business": {
+    "title": "Three Core Pillars",
+    "subtitle": "Building a full-chain anti-aging ecosystem centered on exosome technology",
+    "ai": {
+      "title": "AI Health Management",
+      "desc": "Digital Twin Intelligent Anti-Aging Platform — personalized health management through multi-omics data modeling, precise biological age and aging rate assessment"
+    },
+    "exosome": {
+      "title": "Functional Exosome Products",
+      "desc": "Exosome Engineering Platform — developing standardized, scalable functional exosome products for skin rejuvenation, joint repair, neuroprotection and more"
+    },
+    "clinical": {
+      "title": "Clinical Research Translation",
+      "desc": "Partnering with top-tier hospitals for exosome clinical research, accelerating translation from bench to bedside"
+    }
+  },
+  "whyNow": {
+    "title": "Why Now?",
+    "subtitle": "Three converging trends are driving the longevity tech boom",
+    "tech": {
+      "title": "Technology Inflection Point",
+      "desc": "Exosome engineering matured, AI biological modeling breakthrough — precision anti-aging moves from concept to product"
+    },
+    "policy": {
+      "title": "National Strategic Priority",
+      "desc": "'Healthy China 2030' and 'Silver Economy' national strategies provide strong policy support for the anti-aging sector"
+    },
+    "consumer": {
+      "title": "Generational Consumer Shift",
+      "desc": "New high-net-worth individuals shifting from reactive to preventive healthcare, willing to pay premium for science-backed solutions"
+    }
+  },
+  "painPoints": {
+    "title": "Industry Pain Points & Our Solutions",
+    "items": [
+      {
+        "pain": "Anti-aging products lack scientific validation, low consumer trust",
+        "solution": "Joint clinical research with top hospitals, backed by evidence-based medical data"
+      },
+      {
+        "pain": "Inconsistent exosome product quality, no unified standards",
+        "solution": "Engineering platform enables standardized production with full traceability"
+      },
+      {
+        "pain": "One-size-fits-all health management, lacking personalization",
+        "solution": "AI digital twin modeling delivers precision plans based on multi-omics data"
+      },
+      {
+        "pain": "Medical aesthetics clinics lack differentiated premium anti-aging programs",
+        "solution": "End-to-end solution: Assessment → Plan → Product → Follow-up"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Pioneering the New Era of Scientific Anti-Aging",
+    "subtitle": "Whether you are a medical aesthetics clinic, health management center, hospital, or brand — we look forward to exploring the commercialization of longevity technology together",
+    "formName": "Name",
+    "formCompany": "Company / Organization",
+    "formPhone": "Phone",
+    "formEmail": "Email",
+    "formMessage": "Partnership Needs",
+    "formSubmit": "Submit",
+    "formSuccess": "Thank you for your submission. We will contact you shortly!"
+  },
+  "about": {
+    "title": "About Us",
+    "companyTitle": "Company Overview",
+    "companyDesc": "Shanghai Xiaoling Biomedical Technology Co., Ltd. (X-AGEING) was founded in January 2025, headquartered in Zhangjiang Science City, Shanghai, with angel investment from OBiO Technology. The company focuses on R&D and application of exosome technology and AI digital twins in anti-aging, committed to becoming a global leader in precision anti-aging solutions.",
+    "mission": "Core Philosophy",
+    "missionDesc": "Centered on 'Exosome-Based Balanced Anti-Aging', leveraging the natural intercellular communication mechanism of exosomes to achieve precise regulation and multi-system balanced repair of the human aging process.",
+    "market": "Market Direction",
+    "marketDesc": "Deep focus on the intersection of anti-aging and regenerative medicine, serving medical aesthetics clinics, premium health check centers, top-tier hospitals, and consumer brands with end-to-end solutions from assessment to intervention.",
+    "advantages": "Core Advantages",
+    "advantageItems": [
+      "Exosome Engineering Production Platform",
+      "AI Digital Twin Biological Age Assessment System",
+      "Top-Tier Hospital Joint Clinical Research Network",
+      "Integrated Industry-Academia-Research Translation"
+    ],
+    "teamTitle": "Scientific Team",
+    "teamDesc": "World-class scientists and industry experts, cross-disciplinary expertise in exosome engineering and AI biological modeling",
+    "certsTitle": "Certifications",
+    "certsDesc": "Comprehensive qualification system ensuring R&D and production compliance",
+    "patentsTitle": "Patents",
+    "patentsDesc": "Proprietary intellectual property building core technology moats",
+    "partnersTitle": "Partners",
+    "partnersDesc": "Deep collaborations with leading hospitals, research institutes, and industry capital",
+    "partnerList": [
+      "Zhongshan Hospital, Fudan University",
+      "Suzhou Kowloon Hospital",
+      "OBiO Technology (Shanghai) Co., Ltd.",
+      "Shanghai Shenzer Venture Capital Management Co., Ltd.",
+      "CASSTAR",
+      "Danaher (China)",
+      "Shanghai Jiao Tong University School of Medicine",
+      "CAS Center for Excellence in Molecular Cell Science",
+      "Shanghai Public Health Clinical Center",
+      "National Center for Protein Sciences"
+    ]
+  },
+  "products": {
+    "title": "Products & Solutions",
+    "subtitle": "Technology-driven, building full-scenario anti-aging solutions",
+    "product1Title": "Digital Twin Intelligent Anti-Aging Platform",
+    "product1Desc": "Building personal digital twin models through multi-omics data (genomics, proteomics, metabolomics), precisely assessing biological age, aging rate, and organ function status to tailor personalized anti-aging plans for each user.",
+    "product2Title": "Exosome Engineering Platform",
+    "product2Desc": "Proprietary exosome engineering platform enabling efficient isolation, purification, functional modification, and scaled production. Products include skin rejuvenation serums, joint repair preparations, and neuroprotective factors.",
+    "solutionsTitle": "Solutions",
+    "solution1": {
+      "title": "Medical Aesthetics Solution",
+      "desc": "Providing clinics with a closed-loop anti-aging service: Assessment → Custom Plan → Exosome Products → Outcome Tracking"
+    },
+    "solution2": {
+      "title": "Health Check Center Solution",
+      "desc": "AI biological age assessment + anti-aging intervention plans, upgrading health centers with 'Health Management + Precision Anti-Aging' services"
+    },
+    "solution3": {
+      "title": "Hospital Clinical Research",
+      "desc": "Multi-center clinical research in anti-aging and regenerative medicine with top-tier hospitals, driving translational outcomes"
+    },
+    "solution4": {
+      "title": "Brand Co-Development",
+      "desc": "Providing exosome raw materials and technical support for consumer brands to jointly develop premium anti-aging skincare/health product lines"
+    },
+    "pipelineTitle": "R&D Pipeline",
+    "pipelineDesc": "Multiple parallel pipelines covering skin rejuvenation, joint repair, neurodegenerative diseases and more"
+  },
+  "news": {
+    "title": "News & Insights",
+    "company": "Company News",
+    "industry": "Industry Insights",
+    "articles": "Publications",
+    "readMore": "Read More",
+    "noArticles": "No articles yet — stay tuned"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "infoTitle": "Contact Information",
+    "company": "Shanghai Xiaoling Biomedical Technology Co., Ltd.",
+    "companyEn": "XIAOLING X-AGEING",
+    "contactPerson": "Zhou Shuo",
+    "email": "zhoushuo@x-ageing.com",
+    "address": "Zhangjiang Science City, Pudong New Area, Shanghai",
+    "partnerTitle": "Business Partnership",
+    "partnerDesc": "We welcome partnerships with medical aesthetics clinics, health management centers, hospitals, and consumer brands",
+    "jobsTitle": "Careers",
+    "jobsDesc": "We are looking for talented individuals passionate about longevity technology to pioneer the new era of anti-aging"
+  },
+  "footer": {
+    "company": "Shanghai Xiaoling Biomedical Technology Co., Ltd.",
+    "privacy": "Privacy Policy",
+    "legal": "Legal Notice",
+    "disclaimer": "Disclaimer",
+    "icp": "沪ICP备XXXXXXXX号",
+    "copyright": "© {year} X-AGEING. All rights reserved."
+  }
+}
