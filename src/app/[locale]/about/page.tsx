@@ -10,8 +10,6 @@ import { staggerContainer, staggerItem, fadeUp } from "@/lib/animations";
 const subPages = [
   { key: "companyTitle", href: "/about/company", icon: "🏢" },
   { key: "teamTitle", href: "/about/team", icon: "👨‍🔬" },
-  { key: "certsTitle", href: "/about/certifications", icon: "📜" },
-  { key: "patentsTitle", href: "/about/patents", icon: "💡" },
   { key: "partnersTitle", href: "/about/partners", icon: "🤝" },
 ];
 

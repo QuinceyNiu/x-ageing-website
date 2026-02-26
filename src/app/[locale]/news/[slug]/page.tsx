@@ -24,12 +24,12 @@ export default function NewsDetailPage() {
             公司动态
           </span>
           <h1 className="mt-4 text-heading">
-            小龄生物完成天使轮融资，获和元生物战略投资
+            小龄生物完成种子轮融资，获和元生物战略投资
           </h1>
-          <p className="mt-2 text-sm text-gray">2025年1月</p>
+          <p className="mt-2 text-sm text-gray">2025年12月</p>
           <div className="mt-8 space-y-4 text-body-lg leading-relaxed text-gray">
             <p>
-              上海小龄生物医药技术有限公司（X-AGEING）宣布完成天使轮融资，由和元生物技术（上海）股份有限公司领投。
+              上海小龄生物医药技术有限公司（X-AGEING）宣布完成种子轮融资，由和元生物技术（上海）股份有限公司领投。
             </p>
             <p>
               本轮融资将主要用于外泌体工程化技术平台的建设、AI数字孪生智能抗衰系统的开发，以及核心团队的扩充。

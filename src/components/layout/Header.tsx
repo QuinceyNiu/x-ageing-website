@@ -14,9 +14,7 @@ const navItems = [
     children: [
       { key: "aboutCompany", href: "/about/company" },
       { key: "aboutTeam", href: "/about/team" },
-      { key: "aboutCerts", href: "/about/certifications" },
-      { key: "aboutPatents", href: "/about/patents" },
-      { key: "aboutPartners", href: "/about/partners" },
+{ key: "aboutPartners", href: "/about/partners" },
     ],
   },
   {
@@ -67,24 +65,15 @@ export function Header() {
 
   return (
     <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      )}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300"
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span
-            className={cn(
-              "text-xl font-bold tracking-tight transition-colors",
-              scrolled ? "text-dark-secondary" : "text-white"
-            )}
-          >
-            X-AGEING
+          <span className="text-xl font-bold tracking-tight text-dark-secondary">
+            XIAOLIN X-AGEING
           </span>
+          <span className="text-xs text-gray-400 font-normal">小龄生物</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -99,8 +88,7 @@ export function Header() {
               <Link
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  scrolled ? "text-dark-secondary" : "text-white/90",
+                  "text-sm font-medium transition-colors hover:text-primary text-dark-secondary",
                   pathname.startsWith(item.href) && "text-primary"
                 )}
               >
@@ -146,22 +134,19 @@ export function Header() {
           <div className="space-y-1.5">
             <span
               className={cn(
-                "block h-0.5 w-6 transition-all",
-                scrolled ? "bg-dark-secondary" : "bg-white",
+                "block h-0.5 w-6 transition-all bg-dark-secondary",
                 mobileOpen && "translate-y-2 rotate-45"
               )}
             />
             <span
               className={cn(
-                "block h-0.5 w-6 transition-all",
-                scrolled ? "bg-dark-secondary" : "bg-white",
+                "block h-0.5 w-6 transition-all bg-dark-secondary",
                 mobileOpen && "opacity-0"
               )}
             />
             <span
               className={cn(
-                "block h-0.5 w-6 transition-all",
-                scrolled ? "bg-dark-secondary" : "bg-white",
+                "block h-0.5 w-6 transition-all bg-dark-secondary",
                 mobileOpen && "-translate-y-2 -rotate-45"
               )}
             />

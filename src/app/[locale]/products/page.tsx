@@ -89,7 +89,7 @@ export default function ProductsPage() {
         </div>
       </SectionWrapper>
 
-      {/* Solutions Preview */}
+      {/* Solutions */}
       <SectionWrapper className="bg-light">
         <div className="text-center">
           <h2 className="text-heading">{t("solutionsTitle")}</h2>
@@ -101,29 +101,29 @@ export default function ProductsPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-12 grid gap-6 md:grid-cols-2"
+          className="mt-12 grid gap-8 md:grid-cols-2"
         >
           {(["solution1", "solution2", "solution3", "solution4"] as const).map(
-            (key) => (
-              <motion.div
-                key={key}
-                variants={staggerItem}
-                className="rounded-2xl bg-white p-8 shadow-sm"
-              >
-                <h3 className="text-lg font-semibold">{t(`${key}.title`)}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray">
-                  {t(`${key}.desc`)}
-                </p>
-              </motion.div>
-            )
+            (key, i) => {
+              const icons = ["💉", "🏥", "🔬", "🧴"];
+              return (
+                <motion.div
+                  key={key}
+                  variants={staggerItem}
+                  className="rounded-2xl border border-gray-100 bg-white p-8 transition-all hover:border-primary/20 hover:shadow-lg"
+                >
+                  <span className="text-4xl">{icons[i]}</span>
+                  <h3 className="mt-4 text-xl font-semibold">
+                    {t(`${key}.title`)}
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-gray">
+                    {t(`${key}.desc`)}
+                  </p>
+                </motion.div>
+              );
+            }
           )}
         </motion.div>
-
-        <div className="mt-8 text-center">
-          <Link href="/products/solutions">
-            <Button variant="primary">查看详细解决方案</Button>
-          </Link>
-        </div>
       </SectionWrapper>
 
       {/* Pipeline link */}

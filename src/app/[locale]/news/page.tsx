@@ -11,14 +11,14 @@ const newsItems = [
   {
     slug: "seed-funding",
     category: "company",
-    date: "2025-01",
-    titleZh: "小龄生物完成天使轮融资，获和元生物战略投资",
+    date: "2025-12",
+    titleZh: "小龄生物完成种子轮融资，获和元生物战略投资",
     titleEn:
-      "X-AGEING Completes Angel Round, Secures Strategic Investment from OBiO Technology",
+      "X-AGEING Completes Seed Round, Secures Strategic Investment from OBiO Technology",
     descZh:
-      "上海小龄生物医药技术有限公司宣布完成天使轮融资，由和元生物领投。本轮融资将用于外泌体工程化平台建设及AI数字孪生系统开发。",
+      "上海小龄生物医药技术有限公司宣布完成种子轮融资，由和元生物领投。本轮融资将用于外泌体工程化平台建设及AI数字孪生系统开发。",
     descEn:
-      "Shanghai Xiaoling Biomedical Technology Co., Ltd. announced completion of angel round financing, led by OBiO Technology. Funds will be used for exosome engineering platform construction and AI digital twin system development.",
+      "Shanghai Xiaoling Biomedical Technology Co., Ltd. announced completion of seed round financing, led by OBiO Technology. Funds will be used for exosome engineering platform construction and AI digital twin system development.",
   },
 ];
 

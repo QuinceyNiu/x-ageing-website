@@ -1,7 +1,6 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { BusinessCards } from "@/components/sections/BusinessCards";
 import { WhyNow } from "@/components/sections/WhyNow";
-import { PainPoints } from "@/components/sections/PainPoints";
 import { CTASection } from "@/components/sections/CTASection";
 
 export default function HomePage() {
@@ -10,7 +9,6 @@ export default function HomePage() {
       <HeroSection />
       <BusinessCards />
       <WhyNow />
-      <PainPoints />
       <CTASection />
     </div>
   );
