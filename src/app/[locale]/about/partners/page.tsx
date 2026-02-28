@@ -44,7 +44,7 @@ const categories: Category[] = [
   },
   {
     label: "行业组织",
-    partners: [{ name: "张江科学城商会", abbr: "张江商会" }],
+    partners: [{ name: "张江科学城商会", abbr: "张江商会", logo: "张江科学城商会.jpg" }],
   },
 ];
 
