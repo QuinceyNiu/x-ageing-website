@@ -6,21 +6,7 @@ import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { PageHero } from "@/components/ui/PageHero";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import { Link } from "@/i18n/navigation";
-
-const newsItems = [
-  {
-    slug: "seed-funding",
-    category: "company",
-    date: "2025-12",
-    titleZh: "小龄生物完成种子轮融资，获和元生物战略投资",
-    titleEn:
-      "X-AGEING Completes Seed Round, Secures Strategic Investment from OBiO Technology",
-    descZh:
-      "上海小龄生物医药技术有限公司宣布完成种子轮融资，由和元生物领投。本轮融资将用于外泌体工程化平台建设及AI数字孪生系统开发。",
-    descEn:
-      "Shanghai Xiaoling Biomedical Technology Co., Ltd. announced completion of seed round financing, led by OBiO Technology. Funds will be used for exosome engineering platform construction and AI digital twin system development.",
-  },
-];
+import { newsItems } from "@/lib/newsData";
 
 export default function NewsPage() {
   const t = useTranslations("news");
@@ -54,23 +40,37 @@ export default function NewsPage() {
               <motion.div key={item.slug} variants={staggerItem}>
                 <Link
                   href={`/news/${item.slug}`}
-                  className="card-gradient-border block p-6 transition-all hover:border-primary/20"
+                  className="card-gradient-border flex gap-6 p-6 transition-all hover:border-primary/20"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                      {t(item.category)}
+                  {/* Text content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-3">
+                      <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                        {t(item.category)}
+                      </span>
+                      <span className="text-xs text-gray-light">{item.date}</span>
+                    </div>
+                    <h3 className="mt-3 text-lg font-semibold text-white">
+                      {item.titleZh}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-light line-clamp-2">
+                      {item.descZh}
+                    </p>
+                    <span className="mt-3 inline-block text-sm font-medium text-primary">
+                      {t("readMore")} →
                     </span>
-                    <span className="text-xs text-gray-light">{item.date}</span>
                   </div>
-                  <h3 className="mt-3 text-lg font-semibold text-white">
-                    {item.titleZh}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-light">
-                    {item.descZh}
-                  </p>
-                  <span className="mt-3 inline-block text-sm font-medium text-primary">
-                    {t("readMore")} →
-                  </span>
+
+                  {/* Thumbnail */}
+                  {item.image && (
+                    <div className="hidden sm:block flex-shrink-0 w-40 h-28 overflow-hidden rounded-lg">
+                      <img
+                        src={item.image}
+                        alt={item.titleZh}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  )}
                 </Link>
               </motion.div>
             ))}

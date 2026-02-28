@@ -1,17 +1,42 @@
 "use client";
 
+import { useParams } from "next/navigation";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { PageHero } from "@/components/ui/PageHero";
 import { Link } from "@/i18n/navigation";
+import { newsItems } from "@/lib/newsData";
+
+const categoryLabel: Record<string, string> = {
+  company: "公司动态",
+  industry: "行业资讯",
+  articles: "文章发表",
+};
 
 export default function NewsDetailPage() {
+  const params = useParams();
+  const slug = params?.slug as string;
+
+  const article = newsItems.find((item) => item.slug === slug);
+
+  if (!article) {
+    return (
+      <>
+        <PageHero size="sm" align="left">
+          <Link href="/news" className="mb-6 inline-block text-sm text-white/60 hover:text-white">
+            ← 返回新闻列表
+          </Link>
+        </PageHero>
+        <SectionWrapper dark>
+          <p className="py-12 text-center text-gray-light">文章不存在</p>
+        </SectionWrapper>
+      </>
+    );
+  }
+
   return (
     <>
       <PageHero size="sm" align="left">
-        <Link
-          href="/news"
-          className="mb-6 inline-block text-sm text-white/60 hover:text-white"
-        >
+        <Link href="/news" className="mb-6 inline-block text-sm text-white/60 hover:text-white">
           ← 返回新闻列表
         </Link>
       </PageHero>
@@ -19,22 +44,25 @@ export default function NewsDetailPage() {
       <SectionWrapper dark>
         <article className="mx-auto max-w-3xl">
           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-            公司动态
+            {categoryLabel[article.category] ?? article.category}
           </span>
-          <h1 className="mt-4 text-heading text-white">
-            小龄生物完成种子轮融资，获和元生物战略投资
-          </h1>
-          <p className="mt-2 text-sm text-gray-light">2025年12月</p>
+          <h1 className="mt-4 text-heading text-white">{article.titleZh}</h1>
+          <p className="mt-2 text-sm text-gray-light">{article.date}</p>
+
+          {article.image && (
+            <div className="mt-8 overflow-hidden rounded-2xl">
+              <img
+                src={article.image}
+                alt={article.titleZh}
+                className="w-full object-cover"
+              />
+            </div>
+          )}
+
           <div className="mt-8 space-y-4 text-body-lg leading-relaxed text-gray-light">
-            <p>
-              上海小龄生物医药技术有限公司（X-AGEING）宣布完成种子轮融资，由和元生物技术（上海）股份有限公司领投。
-            </p>
-            <p>
-              本轮融资将主要用于外泌体工程化技术平台的建设、AI数字孪生智能抗衰系统的开发，以及核心团队的扩充。
-            </p>
-            <p>
-              公司成立于2025年1月，总部位于上海张江科学城，专注于外泌体技术与AI数字孪生在抗衰老领域的研发与应用，致力于打造全球领先的精准抗衰解决方案提供商。
-            </p>
+            {article.contentZh.map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
           </div>
         </article>
       </SectionWrapper>
