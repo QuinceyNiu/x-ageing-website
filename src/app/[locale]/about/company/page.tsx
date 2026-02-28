@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { StaggerText } from "@/components/ui/StaggerText";
+import { PageHero } from "@/components/ui/PageHero";
 import { fadeUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 export default function CompanyPage() {
@@ -11,32 +11,23 @@ export default function CompanyPage() {
 
   return (
     <>
-      <section className="relative flex min-h-[40vh] items-center bg-dark">
-        <div className="hero-gradient absolute inset-0" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 text-center">
-          <StaggerText
-            text={t("companyTitle")}
-            as="h1"
-            className="text-display text-white"
-          />
-        </div>
-      </section>
+      <PageHero title={t("companyTitle")} />
 
-      <SectionWrapper>
+      <SectionWrapper dark>
         <div className="mx-auto max-w-3xl">
           <motion.p
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="text-body-lg leading-relaxed text-gray"
+            className="text-body-lg leading-relaxed text-gray-light"
           >
             {t("companyDesc")}
           </motion.p>
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="bg-light">
+      <SectionWrapper dark className="!bg-dark-secondary">
         <div className="grid gap-12 md:grid-cols-2">
           <motion.div
             initial="hidden"
@@ -44,9 +35,9 @@ export default function CompanyPage() {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h2 className="text-subheading">{t("mission")}</h2>
+            <h2 className="text-subheading text-white">{t("mission")}</h2>
             <div className="mt-2 section-divider" />
-            <p className="mt-6 leading-relaxed text-gray">
+            <p className="mt-6 leading-relaxed text-gray-light">
               {t("missionDesc")}
             </p>
           </motion.div>
@@ -56,17 +47,17 @@ export default function CompanyPage() {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h2 className="text-subheading">{t("market")}</h2>
+            <h2 className="text-subheading text-white">{t("market")}</h2>
             <div className="mt-2 section-divider" />
-            <p className="mt-6 leading-relaxed text-gray">
+            <p className="mt-6 leading-relaxed text-gray-light">
               {t("marketDesc")}
             </p>
           </motion.div>
         </div>
       </SectionWrapper>
 
-      <SectionWrapper>
-        <h2 className="text-center text-heading">{t("advantages")}</h2>
+      <SectionWrapper dark>
+        <h2 className="text-center text-heading text-white">{t("advantages")}</h2>
         <div className="mx-auto mt-2 section-divider" />
         <motion.div
           variants={staggerContainer}
@@ -79,12 +70,12 @@ export default function CompanyPage() {
             <motion.div
               key={i}
               variants={staggerItem}
-              className="flex items-start gap-4 rounded-xl border border-gray-100 p-6"
+              className="card-gradient-border flex items-start gap-4 p-6"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
                 {i + 1}
               </div>
-              <p className="font-medium">{t(`advantageItems.${i}`)}</p>
+              <p className="font-medium text-white">{t(`advantageItems.${i}`)}</p>
             </motion.div>
           ))}
         </motion.div>

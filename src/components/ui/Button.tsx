@@ -17,10 +17,11 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center rounded-full font-medium transition-all",
+        "inline-flex items-center justify-center rounded-full font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark",
         {
-          "bg-primary text-white hover:bg-primary-dark": variant === "primary",
-          "border-2 border-white text-white hover:bg-white/10":
+          "bg-gradient-to-r from-primary to-primary-dark text-white hover:from-primary-light hover:to-primary":
+            variant === "primary",
+          "border border-primary/60 text-primary hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_16px_rgba(6,182,212,0.2)]":
             variant === "outline",
           "text-primary hover:bg-primary/10": variant === "ghost",
         },

@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { StaggerText } from "@/components/ui/StaggerText";
+import { PageHero } from "@/components/ui/PageHero";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 
 const solutions = [
@@ -18,18 +18,9 @@ export default function SolutionsPage() {
 
   return (
     <>
-      <section className="relative flex min-h-[40vh] items-center bg-dark">
-        <div className="hero-gradient absolute inset-0" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 text-center">
-          <StaggerText
-            text={t("solutionsTitle")}
-            as="h1"
-            className="text-display text-white"
-          />
-        </div>
-      </section>
+      <PageHero title={t("solutionsTitle")} />
 
-      <SectionWrapper>
+      <SectionWrapper dark>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -41,13 +32,13 @@ export default function SolutionsPage() {
             <motion.div
               key={s.key}
               variants={staggerItem}
-              className="rounded-2xl border border-gray-100 p-8 transition-all hover:border-primary/20 hover:shadow-lg"
+              className="card-gradient-border p-8 transition-all hover:border-primary/20"
             >
               <span className="text-4xl">{s.icon}</span>
-              <h3 className="mt-4 text-xl font-semibold">
+              <h3 className="mt-4 text-xl font-semibold text-white">
                 {t(`${s.key}.title`)}
               </h3>
-              <p className="mt-3 leading-relaxed text-gray">
+              <p className="mt-3 leading-relaxed text-gray-light">
                 {t(`${s.key}.desc`)}
               </p>
             </motion.div>

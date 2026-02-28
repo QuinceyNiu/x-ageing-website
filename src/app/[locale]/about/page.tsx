@@ -4,8 +4,8 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { StaggerText } from "@/components/ui/StaggerText";
-import { staggerContainer, staggerItem, fadeUp } from "@/lib/animations";
+import { PageHero } from "@/components/ui/PageHero";
+import { staggerContainer, staggerItem } from "@/lib/animations";
 
 const subPages = [
   { key: "companyTitle", href: "/about/company", icon: "🏢" },
@@ -18,51 +18,41 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative flex min-h-[50vh] items-center bg-dark">
-        <div className="hero-gradient absolute inset-0" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 text-center">
-          <StaggerText
-            text={t("title")}
-            as="h1"
-            className="text-display text-white"
-          />
-        </div>
-      </section>
+      <PageHero title={t("title")} />
 
       {/* Company Overview */}
-      <SectionWrapper>
+      <SectionWrapper dark>
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-heading">{t("companyTitle")}</h2>
+          <h2 className="text-heading text-white">{t("companyTitle")}</h2>
           <div className="mx-auto mt-2 section-divider" />
-          <p className="mt-8 text-body-lg leading-relaxed text-gray">
+          <p className="mt-8 text-body-lg leading-relaxed text-gray-light">
             {t("companyDesc")}
           </p>
         </div>
       </SectionWrapper>
 
       {/* Mission & Market */}
-      <SectionWrapper className="bg-light">
+      <SectionWrapper dark className="!bg-dark-secondary">
         <div className="grid gap-12 md:grid-cols-2">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            variants={fadeUp}
+            transition={{ duration: 0.5 }}
           >
-            <h3 className="text-subheading">{t("mission")}</h3>
-            <p className="mt-4 leading-relaxed text-gray">
+            <h3 className="text-subheading text-white">{t("mission")}</h3>
+            <p className="mt-4 leading-relaxed text-gray-light">
               {t("missionDesc")}
             </p>
           </motion.div>
           <motion.div
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            variants={fadeUp}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="text-subheading">{t("market")}</h3>
-            <p className="mt-4 leading-relaxed text-gray">
+            <h3 className="text-subheading text-white">{t("market")}</h3>
+            <p className="mt-4 leading-relaxed text-gray-light">
               {t("marketDesc")}
             </p>
           </motion.div>
@@ -70,8 +60,8 @@ export default function AboutPage() {
       </SectionWrapper>
 
       {/* Core Advantages */}
-      <SectionWrapper>
-        <h2 className="text-center text-heading">{t("advantages")}</h2>
+      <SectionWrapper dark>
+        <h2 className="text-center text-heading text-white">{t("advantages")}</h2>
         <div className="mx-auto mt-2 section-divider" />
         <motion.div
           variants={staggerContainer}
@@ -84,12 +74,12 @@ export default function AboutPage() {
             <motion.div
               key={i}
               variants={staggerItem}
-              className="rounded-xl border border-gray-100 p-6 text-center"
+              className="card-gradient-border p-6 text-center"
             >
               <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-lg font-bold text-primary">
                 {i + 1}
               </div>
-              <p className="mt-4 text-sm font-medium">
+              <p className="mt-4 text-sm font-medium text-gray-light">
                 {t(`advantageItems.${i}`)}
               </p>
             </motion.div>
@@ -98,7 +88,7 @@ export default function AboutPage() {
       </SectionWrapper>
 
       {/* Sub-page Navigation */}
-      <SectionWrapper className="bg-light">
+      <SectionWrapper dark className="!bg-dark-secondary">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -110,10 +100,12 @@ export default function AboutPage() {
             <motion.div key={page.key} variants={staggerItem}>
               <Link
                 href={page.href}
-                className="block rounded-xl bg-white p-6 text-center shadow-sm transition-all hover:shadow-md hover:ring-1 hover:ring-primary/20"
+                className="glass-card block rounded-xl p-6 text-center transition-all hover:border-primary/20"
               >
                 <span className="text-3xl">{page.icon}</span>
-                <p className="mt-3 font-medium">{t(page.key)}</p>
+                <p className="mt-3 font-medium text-gray-light hover:text-white">
+                  {t(page.key)}
+                </p>
               </Link>
             </motion.div>
           ))}

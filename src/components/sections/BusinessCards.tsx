@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { staggerContainer, staggerItem } from "@/lib/animations";
+import { staggerFast, cardRise } from "@/lib/animations";
 
 const businessCards = [
   {
@@ -66,15 +66,15 @@ export function BusinessCards() {
   const t = useTranslations("business");
 
   return (
-    <SectionWrapper snap>
+    <SectionWrapper dark snap>
       <div className="text-center">
-        <h2 className="text-heading">{t("title")}</h2>
-        <p className="mt-4 text-body-lg text-gray">{t("subtitle")}</p>
+        <h2 className="text-heading text-white">{t("title")}</h2>
+        <p className="mt-4 text-body-lg text-gray-light">{t("subtitle")}</p>
         <div className="mx-auto mt-2 section-divider" />
       </div>
 
       <motion.div
-        variants={staggerContainer}
+        variants={staggerFast}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -83,18 +83,21 @@ export function BusinessCards() {
         {businessCards.map((card) => (
           <motion.div
             key={card.key}
-            variants={staggerItem}
-            className="group rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all hover:border-primary/20 hover:shadow-lg"
+            variants={cardRise}
+            whileHover={{ y: -6 }}
+            className="group card-gradient-border overflow-hidden p-8"
           >
-            <div className="inline-flex rounded-xl bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+            <div className="inline-flex rounded-xl bg-primary/10 p-3 text-primary transition-all group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]">
               {card.icon}
             </div>
-            <h3 className="mt-6 text-xl font-semibold">
+            <h3 className="mt-6 text-xl font-semibold text-white">
               {t(`${card.key}.title`)}
             </h3>
-            <p className="mt-3 leading-relaxed text-gray">
+            <p className="mt-3 leading-relaxed text-gray-light">
               {t(`${card.key}.desc`)}
             </p>
+            {/* Hover underline reveal */}
+            <div className="mt-6 h-px w-0 bg-gradient-to-r from-primary to-accent transition-all duration-500 group-hover:w-full" />
           </motion.div>
         ))}
       </motion.div>

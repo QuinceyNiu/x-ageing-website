@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { StaggerText } from "@/components/ui/StaggerText";
+import { PageHero } from "@/components/ui/PageHero";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import { Link } from "@/i18n/navigation";
 
@@ -27,24 +27,15 @@ export default function NewsPage() {
 
   return (
     <>
-      <section className="relative flex min-h-[40vh] items-center bg-dark">
-        <div className="hero-gradient absolute inset-0" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 text-center">
-          <StaggerText
-            text={t("title")}
-            as="h1"
-            className="text-display text-white"
-          />
-        </div>
-      </section>
+      <PageHero title={t("title")} />
 
-      {/* Category tabs */}
-      <SectionWrapper>
-        <div className="mb-8 flex gap-4 border-b border-gray-200">
+      <SectionWrapper dark>
+        {/* Category tabs */}
+        <div className="mb-8 flex gap-4 border-b border-dark-border">
           {["company", "industry", "articles"].map((cat) => (
             <button
               key={cat}
-              className="border-b-2 border-transparent px-4 py-2 text-sm font-medium text-gray transition-colors hover:border-primary hover:text-primary"
+              className="border-b-2 border-transparent px-4 py-2 text-sm font-medium text-gray-light transition-colors hover:border-primary hover:text-primary"
             >
               {t(cat)}
             </button>
@@ -63,18 +54,18 @@ export default function NewsPage() {
               <motion.div key={item.slug} variants={staggerItem}>
                 <Link
                   href={`/news/${item.slug}`}
-                  className="block rounded-2xl border border-gray-100 p-6 transition-all hover:border-primary/20 hover:shadow-md"
+                  className="card-gradient-border block p-6 transition-all hover:border-primary/20"
                 >
                   <div className="flex items-center gap-3">
                     <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
                       {t(item.category)}
                     </span>
-                    <span className="text-xs text-gray">{item.date}</span>
+                    <span className="text-xs text-gray-light">{item.date}</span>
                   </div>
-                  <h3 className="mt-3 text-lg font-semibold">
+                  <h3 className="mt-3 text-lg font-semibold text-white">
                     {item.titleZh}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray">
+                  <p className="mt-2 text-sm leading-relaxed text-gray-light">
                     {item.descZh}
                   </p>
                   <span className="mt-3 inline-block text-sm font-medium text-primary">
@@ -85,7 +76,7 @@ export default function NewsPage() {
             ))}
           </motion.div>
         ) : (
-          <p className="py-12 text-center text-gray">{t("noArticles")}</p>
+          <p className="py-12 text-center text-gray-light">{t("noArticles")}</p>
         )}
       </SectionWrapper>
     </>

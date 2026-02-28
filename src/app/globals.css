@@ -1,14 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #0D9488;
-  --color-primary-light: #14B8A6;
-  --color-primary-dark: #0F766E;
-  --color-dark: #0A0A0A;
-  --color-dark-secondary: #171717;
-  --color-gray: #737373;
-  --color-gray-light: #A3A3A3;
-  --color-light: #F5F5F5;
+  /* 主色：赛博青 */
+  --color-primary: #06B6D4;
+  --color-primary-light: #22D3EE;
+  --color-primary-dark: #0891B2;
+  --color-accent: #818CF8;
+
+  /* 背景：深海军蓝 */
+  --color-dark: #050B18;
+  --color-dark-secondary: #0D1526;
+  --color-dark-card: #111827;
+  --color-dark-border: #1E293B;
+
+  /* 灰调：slate 系列（冷灰） */
+  --color-gray: #64748B;
+  --color-gray-light: #94A3B8;
+  --color-light: #F1F5F9;
   --color-white: #FFFFFF;
 
   --font-sans: "Inter", "Noto Sans SC", system-ui, sans-serif;
@@ -21,8 +29,8 @@ html {
 }
 
 body {
-  background: var(--color-white);
-  color: var(--color-dark-secondary);
+  background: var(--color-dark);
+  color: var(--color-gray-light);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -67,19 +75,64 @@ body {
   line-height: 1.7;
 }
 
-/* Hero gradient overlay */
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #67E8F9 0%, #C4B5FD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(103, 232, 249, 0.35));
+}
+
+/* Glassmorphism card base */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* Gradient border card */
+.card-gradient-border {
+  position: relative;
+  background: var(--color-dark-card);
+  border-radius: 16px;
+}
+.card-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(6,182,212,0.4), rgba(129,140,248,0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Glow button */
+.btn-glow {
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.6);
+}
+
+/* Gradient section divider */
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #06B6D4, #818CF8);
+  border-radius: 2px;
+}
+
+/* Hero gradient overlay (legacy, kept for fallback) */
 .hero-gradient {
   background: linear-gradient(
     to bottom,
-    rgba(10, 10, 10, 0.7) 0%,
-    rgba(10, 10, 10, 0.4) 50%,
-    rgba(10, 10, 10, 0.8) 100%
+    rgba(5, 11, 24, 0.7) 0%,
+    rgba(5, 11, 24, 0.4) 50%,
+    rgba(5, 11, 24, 0.8) 100%
   );
-}
-
-/* Section divider */
-.section-divider {
-  width: 60px;
-  height: 3px;
-  background: var(--color-primary);
 }

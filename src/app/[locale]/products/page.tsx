@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { StaggerText } from "@/components/ui/StaggerText";
+import { PageHero } from "@/components/ui/PageHero";
 import { fadeUp, staggerContainer, staggerItem } from "@/lib/animations";
 import { Button } from "@/components/ui/Button";
 
@@ -13,21 +13,10 @@ export default function ProductsPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative flex min-h-[50vh] items-center bg-dark">
-        <div className="hero-gradient absolute inset-0" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 text-center">
-          <StaggerText
-            text={t("title")}
-            as="h1"
-            className="text-display text-white"
-          />
-          <p className="mt-4 text-body-lg text-white/60">{t("subtitle")}</p>
-        </div>
-      </section>
+      <PageHero title={t("title")} subtitle={t("subtitle")} />
 
       {/* Products */}
-      <SectionWrapper>
+      <SectionWrapper dark>
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Product 1 */}
           <motion.div
@@ -35,7 +24,7 @@ export default function ProductsPage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="rounded-2xl border border-gray-100 p-8"
+            className="card-gradient-border p-8"
           >
             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
               <svg
@@ -52,8 +41,8 @@ export default function ProductsPage() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold">{t("product1Title")}</h3>
-            <p className="mt-4 leading-relaxed text-gray">
+            <h3 className="text-xl font-semibold text-white">{t("product1Title")}</h3>
+            <p className="mt-4 leading-relaxed text-gray-light">
               {t("product1Desc")}
             </p>
           </motion.div>
@@ -64,7 +53,7 @@ export default function ProductsPage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="rounded-2xl border border-gray-100 p-8"
+            className="card-gradient-border p-8"
           >
             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
               <svg
@@ -81,8 +70,8 @@ export default function ProductsPage() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold">{t("product2Title")}</h3>
-            <p className="mt-4 leading-relaxed text-gray">
+            <h3 className="text-xl font-semibold text-white">{t("product2Title")}</h3>
+            <p className="mt-4 leading-relaxed text-gray-light">
               {t("product2Desc")}
             </p>
           </motion.div>
@@ -90,9 +79,9 @@ export default function ProductsPage() {
       </SectionWrapper>
 
       {/* Solutions */}
-      <SectionWrapper className="bg-light">
+      <SectionWrapper dark className="!bg-dark-secondary">
         <div className="text-center">
-          <h2 className="text-heading">{t("solutionsTitle")}</h2>
+          <h2 className="text-heading text-white">{t("solutionsTitle")}</h2>
           <div className="mx-auto mt-2 section-divider" />
         </div>
 
@@ -110,13 +99,13 @@ export default function ProductsPage() {
                 <motion.div
                   key={key}
                   variants={staggerItem}
-                  className="rounded-2xl border border-gray-100 bg-white p-8 transition-all hover:border-primary/20 hover:shadow-lg"
+                  className="card-gradient-border p-8 transition-all hover:border-primary/20"
                 >
                   <span className="text-4xl">{icons[i]}</span>
-                  <h3 className="mt-4 text-xl font-semibold">
+                  <h3 className="mt-4 text-xl font-semibold text-white">
                     {t(`${key}.title`)}
                   </h3>
-                  <p className="mt-3 leading-relaxed text-gray">
+                  <p className="mt-3 leading-relaxed text-gray-light">
                     {t(`${key}.desc`)}
                   </p>
                 </motion.div>
@@ -127,11 +116,11 @@ export default function ProductsPage() {
       </SectionWrapper>
 
       {/* Pipeline link */}
-      <SectionWrapper>
+      <SectionWrapper dark>
         <div className="text-center">
-          <h2 className="text-heading">{t("pipelineTitle")}</h2>
+          <h2 className="text-heading text-white">{t("pipelineTitle")}</h2>
           <div className="mx-auto mt-2 section-divider" />
-          <p className="mt-6 text-body-lg text-gray">{t("pipelineDesc")}</p>
+          <p className="mt-6 text-body-lg text-gray-light">{t("pipelineDesc")}</p>
           <div className="mt-8">
             <Link href="/products/pipeline">
               <Button variant="primary">查看研发管线</Button>

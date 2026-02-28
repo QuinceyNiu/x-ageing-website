@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { staggerContainer, staggerItem } from "@/lib/animations";
+import { staggerFast, cardRise } from "@/lib/animations";
 
 export function PainPoints() {
   const t = useTranslations("painPoints");
@@ -11,14 +11,14 @@ export function PainPoints() {
   const items = [0, 1, 2, 3];
 
   return (
-    <SectionWrapper snap>
+    <SectionWrapper dark snap>
       <div className="text-center">
-        <h2 className="text-heading">{t("title")}</h2>
+        <h2 className="text-heading text-white">{t("title")}</h2>
         <div className="mx-auto mt-2 section-divider" />
       </div>
 
       <motion.div
-        variants={staggerContainer}
+        variants={staggerFast}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -27,27 +27,27 @@ export function PainPoints() {
         {items.map((i) => (
           <motion.div
             key={i}
-            variants={staggerItem}
-            className="overflow-hidden rounded-2xl border border-gray-100"
+            variants={cardRise}
+            className="card-gradient-border overflow-hidden"
           >
             {/* Pain */}
-            <div className="bg-light p-6">
+            <div className="bg-red-950/30 border-b border-red-900/20 p-6">
               <div className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-red-100 text-xs font-medium text-red-600">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-red-500/20 text-xs font-medium text-red-400">
                   !
                 </span>
-                <p className="font-medium text-dark-secondary">
+                <p className="font-medium text-white/90">
                   {t(`items.${i}.pain`)}
                 </p>
               </div>
             </div>
             {/* Solution */}
-            <div className="bg-white p-6">
+            <div className="glass-card rounded-b-2xl p-6">
               <div className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-medium text-primary">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20 text-xs font-medium text-primary">
                   ✓
                 </span>
-                <p className="text-gray">{t(`items.${i}.solution`)}</p>
+                <p className="text-gray-light">{t(`items.${i}.solution`)}</p>
               </div>
             </div>
           </motion.div>

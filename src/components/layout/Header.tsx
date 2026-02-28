@@ -14,7 +14,7 @@ const navItems = [
     children: [
       { key: "aboutCompany", href: "/about/company" },
       { key: "aboutTeam", href: "/about/team" },
-{ key: "aboutPartners", href: "/about/partners" },
+      { key: "aboutPartners", href: "/about/partners" },
     ],
   },
   {
@@ -65,15 +65,20 @@ export function Header() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300"
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        scrolled
+          ? "bg-dark/90 backdrop-blur-md border-b border-white/5 shadow-lg"
+          : "bg-transparent"
+      )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold tracking-tight text-dark-secondary">
+          <span className="text-xl font-bold tracking-tight text-white">
             XIAOLIN X-AGEING
           </span>
-          <span className="text-xs text-gray-400 font-normal">小龄生物</span>
+          <span className="text-xs text-white/40 font-normal">小龄生物</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -88,7 +93,7 @@ export function Header() {
               <Link
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary text-dark-secondary",
+                  "text-sm font-medium transition-colors text-white/80 hover:text-white",
                   pathname.startsWith(item.href) && "text-primary"
                 )}
               >
@@ -105,12 +110,12 @@ export function Header() {
                     transition={{ duration: 0.15 }}
                     className="absolute left-1/2 top-full -translate-x-1/2 pt-2"
                   >
-                    <div className="min-w-[160px] rounded-lg bg-white py-2 shadow-lg ring-1 ring-black/5">
+                    <div className="min-w-[160px] rounded-lg bg-dark-card/95 backdrop-blur-md border border-white/10 py-2 shadow-lg">
                       {item.children.map((child) => (
                         <Link
                           key={child.key}
                           href={child.href}
-                          className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-light hover:text-primary"
+                          className="block px-4 py-2 text-sm text-gray-light transition-colors hover:bg-white/5 hover:text-primary"
                         >
                           {t(child.key)}
                         </Link>
@@ -134,19 +139,19 @@ export function Header() {
           <div className="space-y-1.5">
             <span
               className={cn(
-                "block h-0.5 w-6 transition-all bg-dark-secondary",
+                "block h-0.5 w-6 transition-all bg-white",
                 mobileOpen && "translate-y-2 rotate-45"
               )}
             />
             <span
               className={cn(
-                "block h-0.5 w-6 transition-all bg-dark-secondary",
+                "block h-0.5 w-6 transition-all bg-white",
                 mobileOpen && "opacity-0"
               )}
             />
             <span
               className={cn(
-                "block h-0.5 w-6 transition-all bg-dark-secondary",
+                "block h-0.5 w-6 transition-all bg-white",
                 mobileOpen && "-translate-y-2 -rotate-45"
               )}
             />
@@ -161,14 +166,14 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden bg-white lg:hidden"
+            className="overflow-hidden bg-dark/95 backdrop-blur-md border-b border-white/10 lg:hidden"
           >
             <div className="space-y-1 px-6 py-4">
               {navItems.map((item) => (
                 <div key={item.key}>
                   <Link
                     href={item.href}
-                    className="block py-2 text-base font-medium text-dark-secondary hover:text-primary"
+                    className="block py-2 text-base font-medium text-white hover:text-primary"
                   >
                     {t(item.key)}
                   </Link>
@@ -178,7 +183,7 @@ export function Header() {
                         <Link
                           key={child.key}
                           href={child.href}
-                          className="block py-1.5 text-sm text-gray hover:text-primary"
+                          className="block py-1.5 text-sm text-gray-light hover:text-primary"
                         >
                           {t(child.key)}
                         </Link>

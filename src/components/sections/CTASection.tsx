@@ -19,6 +19,11 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
+const inputClass = (hasError: boolean) =>
+  `rounded-lg border bg-dark-card px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition-all focus:border-primary focus:shadow-[0_0_0_3px_rgba(6,182,212,0.15)] ${
+    hasError ? "border-red-500" : "border-dark-border"
+  }`;
+
 export function CTASection() {
   const t = useTranslations("cta");
   const [submitted, setSubmitted] = useState(false);
@@ -37,8 +42,25 @@ export function CTASection() {
   };
 
   return (
-    <section className="scroll-snap-section bg-dark px-6 py-20 text-white md:py-28">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative scroll-snap-section bg-dark px-6 py-20 text-white md:py-28 overflow-hidden">
+      {/* Ambient glow: top-left cyan */}
+      <div
+        className="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full opacity-30"
+        style={{
+          background: "radial-gradient(circle, rgba(6,182,212,0.4), transparent 70%)",
+          filter: "blur(120px)",
+        }}
+      />
+      {/* Ambient glow: bottom-right purple */}
+      <div
+        className="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full opacity-20"
+        style={{
+          background: "radial-gradient(circle, rgba(129,140,248,0.5), transparent 70%)",
+          filter: "blur(120px)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left — text */}
           <motion.div
@@ -47,7 +69,7 @@ export function CTASection() {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h2 className="text-heading">{t("title")}</h2>
+            <h2 className="text-heading text-white">{t("title")}</h2>
             <p className="mt-6 text-body-lg text-white/60">{t("subtitle")}</p>
           </motion.div>
 
@@ -73,42 +95,34 @@ export function CTASection() {
                   <input
                     {...register("name")}
                     placeholder={t("formName")}
-                    className={`rounded-lg border bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-primary ${
-                      errors.name ? "border-red-500" : "border-white/10"
-                    }`}
+                    className={inputClass(!!errors.name)}
                   />
                   <input
                     {...register("company")}
                     placeholder={t("formCompany")}
-                    className={`rounded-lg border bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-primary ${
-                      errors.company ? "border-red-500" : "border-white/10"
-                    }`}
+                    className={inputClass(!!errors.company)}
                   />
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <input
                     {...register("phone")}
                     placeholder={t("formPhone")}
-                    className={`rounded-lg border bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-primary ${
-                      errors.phone ? "border-red-500" : "border-white/10"
-                    }`}
+                    className={inputClass(!!errors.phone)}
                   />
                   <input
                     {...register("email")}
                     type="email"
                     placeholder={t("formEmail")}
-                    className={`rounded-lg border bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-primary ${
-                      errors.email ? "border-red-500" : "border-white/10"
-                    }`}
+                    className={inputClass(!!errors.email)}
                   />
                 </div>
                 <textarea
                   {...register("message")}
                   placeholder={t("formMessage")}
                   rows={4}
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-primary"
+                  className={`w-full ${inputClass(false)}`}
                 />
-                <Button type="submit" variant="primary" size="lg" className="w-full">
+                <Button type="submit" variant="primary" size="lg" className="btn-glow w-full">
                   {t("formSubmit")}
                 </Button>
               </form>

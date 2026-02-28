@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { StaggerText } from "@/components/ui/StaggerText";
+import { PageHero } from "@/components/ui/PageHero";
 import { fadeUp } from "@/lib/animations";
 import { Button } from "@/components/ui/Button";
 
@@ -20,6 +20,9 @@ const schema = z.object({
 });
 
 type FormData = z.infer<typeof schema>;
+
+const inputBase =
+  "w-full rounded-lg border bg-dark-card px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition-all focus:border-primary focus:shadow-[0_0_0_3px_rgba(6,182,212,0.15)]";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -41,18 +44,9 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="relative flex min-h-[40vh] items-center bg-dark">
-        <div className="hero-gradient absolute inset-0" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 text-center">
-          <StaggerText
-            text={t("title")}
-            as="h1"
-            className="text-display text-white"
-          />
-        </div>
-      </section>
+      <PageHero title={t("title")} />
 
-      <SectionWrapper>
+      <SectionWrapper dark>
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Contact Info */}
           <motion.div
@@ -61,25 +55,25 @@ export default function ContactPage() {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h2 className="text-subheading">{t("infoTitle")}</h2>
+            <h2 className="text-subheading text-white">{t("infoTitle")}</h2>
             <div className="mt-2 section-divider" />
 
             <div className="mt-8 space-y-6">
               <div>
-                <p className="font-semibold">{t("company")}</p>
-                <p className="text-sm text-gray">{t("companyEn")}</p>
+                <p className="font-semibold text-white">{t("company")}</p>
+                <p className="text-sm text-gray-light">{t("companyEn")}</p>
               </div>
               <div>
-                <p className="text-sm text-gray">联系人</p>
-                <p className="font-medium">{t("contactPerson")}</p>
+                <p className="text-sm text-gray-light">联系人</p>
+                <p className="font-medium text-white">{t("contactPerson")}</p>
               </div>
               <div>
-                <p className="text-sm text-gray">邮箱</p>
-                <p className="font-medium">{t("email")}</p>
+                <p className="text-sm text-gray-light">邮箱</p>
+                <p className="font-medium text-white">{t("email")}</p>
               </div>
               <div>
-                <p className="text-sm text-gray">地址</p>
-                <p className="font-medium">{t("address")}</p>
+                <p className="text-sm text-gray-light">地址</p>
+                <p className="font-medium text-white">{t("address")}</p>
               </div>
             </div>
           </motion.div>
@@ -91,9 +85,9 @@ export default function ContactPage() {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h2 className="text-subheading">{t("partnerTitle")}</h2>
+            <h2 className="text-subheading text-white">{t("partnerTitle")}</h2>
             <div className="mt-2 section-divider" />
-            <p className="mt-4 text-sm text-gray">{t("partnerDesc")}</p>
+            <p className="mt-4 text-sm text-gray-light">{t("partnerDesc")}</p>
 
             {submitted ? (
               <div className="mt-8 rounded-2xl border border-primary/30 bg-primary/5 p-8 text-center">
@@ -108,15 +102,15 @@ export default function ContactPage() {
                   <input
                     {...register("name")}
                     placeholder={tCta("formName")}
-                    className={`rounded-lg border px-4 py-3 text-sm outline-none transition-colors focus:border-primary ${
-                      errors.name ? "border-red-500" : "border-gray-200"
+                    className={`${inputBase} ${
+                      errors.name ? "border-red-500" : "border-dark-border"
                     }`}
                   />
                   <input
                     {...register("company")}
                     placeholder={tCta("formCompany")}
-                    className={`rounded-lg border px-4 py-3 text-sm outline-none transition-colors focus:border-primary ${
-                      errors.company ? "border-red-500" : "border-gray-200"
+                    className={`${inputBase} ${
+                      errors.company ? "border-red-500" : "border-dark-border"
                     }`}
                   />
                 </div>
@@ -124,16 +118,16 @@ export default function ContactPage() {
                   <input
                     {...register("phone")}
                     placeholder={tCta("formPhone")}
-                    className={`rounded-lg border px-4 py-3 text-sm outline-none transition-colors focus:border-primary ${
-                      errors.phone ? "border-red-500" : "border-gray-200"
+                    className={`${inputBase} ${
+                      errors.phone ? "border-red-500" : "border-dark-border"
                     }`}
                   />
                   <input
                     {...register("email")}
                     type="email"
                     placeholder={tCta("formEmail")}
-                    className={`rounded-lg border px-4 py-3 text-sm outline-none transition-colors focus:border-primary ${
-                      errors.email ? "border-red-500" : "border-gray-200"
+                    className={`${inputBase} ${
+                      errors.email ? "border-red-500" : "border-dark-border"
                     }`}
                   />
                 </div>
@@ -141,9 +135,14 @@ export default function ContactPage() {
                   {...register("message")}
                   placeholder={tCta("formMessage")}
                   rows={4}
-                  className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
+                  className={`${inputBase} border-dark-border`}
                 />
-                <Button type="submit" variant="primary" size="lg" className="w-full">
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="lg"
+                  className="btn-glow w-full"
+                >
                   {tCta("formSubmit")}
                 </Button>
               </form>
@@ -153,12 +152,12 @@ export default function ContactPage() {
       </SectionWrapper>
 
       {/* Careers */}
-      <SectionWrapper className="bg-light" id="careers">
+      <SectionWrapper dark className="!bg-dark-secondary" id="careers">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-heading">{t("jobsTitle")}</h2>
+          <h2 className="text-heading text-white">{t("jobsTitle")}</h2>
           <div className="mx-auto mt-2 section-divider" />
-          <p className="mt-6 text-body-lg text-gray">{t("jobsDesc")}</p>
-          <p className="mt-4 text-sm text-gray">
+          <p className="mt-6 text-body-lg text-gray-light">{t("jobsDesc")}</p>
+          <p className="mt-4 text-sm text-gray-light">
             简历请发送至：
             <a
               href={`mailto:${t("email")}`}

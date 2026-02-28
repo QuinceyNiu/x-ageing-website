@@ -1,33 +1,31 @@
 "use client";
 
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { PageHero } from "@/components/ui/PageHero";
 import { Link } from "@/i18n/navigation";
 
 export default function NewsDetailPage() {
   return (
     <>
-      <section className="relative flex min-h-[30vh] items-center bg-dark">
-        <div className="hero-gradient absolute inset-0" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-32">
-          <Link
-            href="/news"
-            className="text-sm text-white/60 hover:text-white"
-          >
-            ← 返回新闻列表
-          </Link>
-        </div>
-      </section>
+      <PageHero size="sm" align="left">
+        <Link
+          href="/news"
+          className="mb-6 inline-block text-sm text-white/60 hover:text-white"
+        >
+          ← 返回新闻列表
+        </Link>
+      </PageHero>
 
-      <SectionWrapper>
+      <SectionWrapper dark>
         <article className="mx-auto max-w-3xl">
           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
             公司动态
           </span>
-          <h1 className="mt-4 text-heading">
+          <h1 className="mt-4 text-heading text-white">
             小龄生物完成种子轮融资，获和元生物战略投资
           </h1>
-          <p className="mt-2 text-sm text-gray">2025年12月</p>
-          <div className="mt-8 space-y-4 text-body-lg leading-relaxed text-gray">
+          <p className="mt-2 text-sm text-gray-light">2025年12月</p>
+          <div className="mt-8 space-y-4 text-body-lg leading-relaxed text-gray-light">
             <p>
               上海小龄生物医药技术有限公司（X-AGEING）宣布完成种子轮融资，由和元生物技术（上海）股份有限公司领投。
             </p>

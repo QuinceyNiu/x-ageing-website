@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { staggerContainer, staggerItem } from "@/lib/animations";
+import { staggerFast, cardRise } from "@/lib/animations";
 
 const items = [
   {
@@ -24,15 +24,15 @@ export function WhyNow() {
   const t = useTranslations("whyNow");
 
   return (
-    <SectionWrapper className="bg-light" snap>
+    <SectionWrapper dark snap className="!bg-dark-secondary">
       <div className="text-center">
-        <h2 className="text-heading">{t("title")}</h2>
-        <p className="mt-4 text-body-lg text-gray">{t("subtitle")}</p>
+        <h2 className="text-heading text-white">{t("title")}</h2>
+        <p className="mt-4 text-body-lg text-gray-light">{t("subtitle")}</p>
         <div className="mx-auto mt-2 section-divider" />
       </div>
 
       <motion.div
-        variants={staggerContainer}
+        variants={staggerFast}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -41,16 +41,16 @@ export function WhyNow() {
         {items.map((item) => (
           <motion.div
             key={item.key}
-            variants={staggerItem}
-            className="relative rounded-2xl bg-white p-8 shadow-sm"
+            variants={cardRise}
+            className="relative card-gradient-border p-8 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all"
           >
-            <span className="text-5xl font-bold text-primary/10">
+            <span className="text-5xl font-bold text-gradient opacity-20 select-none">
               {item.icon}
             </span>
-            <h3 className="mt-4 text-xl font-semibold">
+            <h3 className="mt-4 text-xl font-semibold text-white">
               {t(`${item.key}.title`)}
             </h3>
-            <p className="mt-3 leading-relaxed text-gray">
+            <p className="mt-3 leading-relaxed text-gray-light">
               {t(`${item.key}.desc`)}
             </p>
           </motion.div>

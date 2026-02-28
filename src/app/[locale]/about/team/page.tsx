@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { StaggerText } from "@/components/ui/StaggerText";
+import { PageHero } from "@/components/ui/PageHero";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 
 const teamMembers = [
@@ -18,19 +18,9 @@ export default function TeamPage() {
 
   return (
     <>
-      <section className="relative flex min-h-[40vh] items-center bg-dark">
-        <div className="hero-gradient absolute inset-0" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 text-center">
-          <StaggerText
-            text={t("teamTitle")}
-            as="h1"
-            className="text-display text-white"
-          />
-          <p className="mt-4 text-body-lg text-white/60">{t("teamDesc")}</p>
-        </div>
-      </section>
+      <PageHero title={t("teamTitle")} subtitle={t("teamDesc")} />
 
-      <SectionWrapper>
+      <SectionWrapper dark>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -42,17 +32,17 @@ export default function TeamPage() {
             <motion.div
               key={i}
               variants={staggerItem}
-              className="group overflow-hidden rounded-2xl border border-gray-100 text-center"
+              className="card-gradient-border group overflow-hidden text-center"
             >
-              <div className="aspect-[3/4] bg-gradient-to-b from-primary/5 to-primary/10" />
+              <div className="aspect-[3/4] bg-gradient-to-b from-primary/10 to-accent/10" />
               <div className="p-6">
-                <h3 className="text-lg font-semibold">{member.name}</h3>
-                <p className="mt-1 text-sm text-gray">{member.role}</p>
+                <h3 className="text-lg font-semibold text-white">{member.name}</h3>
+                <p className="mt-1 text-sm text-gray-light">{member.role}</p>
               </div>
             </motion.div>
           ))}
         </motion.div>
-        <p className="mt-12 text-center text-gray">
+        <p className="mt-12 text-center text-gray-light">
           团队详细信息即将更新，敬请期待。
         </p>
       </SectionWrapper>
