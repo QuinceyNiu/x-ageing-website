@@ -76,7 +76,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <span className="text-xl font-bold tracking-tight text-white">
-            XIAOLIN X-AGEING
+            XIAOLING X-AGEING
           </span>
           <span className="text-xs text-white/40 font-normal">小龄生物</span>
         </Link>

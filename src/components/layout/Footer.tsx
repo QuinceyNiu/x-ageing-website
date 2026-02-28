@@ -15,7 +15,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-lg font-bold tracking-tight">
-              XIAOLIN X-AGEING
+              XIAOLING X-AGEING
               <span className="ml-2 text-xs font-normal text-gray-400">小龄生物</span>
             </h3>
             <p className="mt-2 text-sm text-gray-light">{t("company")}</p>
